@@ -1,6 +1,6 @@
 package com.alaw810;
 
-public class Restaurant {
+public class Restaurant implements Comparable<Restaurant> {
     private String name;
     private int rating;
 
@@ -35,4 +35,14 @@ public class Restaurant {
     public int hashCode() {
         return name.toLowerCase().hashCode() + Integer.hashCode(rating);
     }
+
+    @Override
+    public int compareTo(Restaurant other) {
+        int nameComparison = this.name.compareToIgnoreCase(other.name);
+        if (nameComparison != 0) {
+            return nameComparison;
+        }
+        return Integer.compare(other.rating, this.rating);
+    }
+
 }

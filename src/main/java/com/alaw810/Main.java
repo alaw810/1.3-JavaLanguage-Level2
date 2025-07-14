@@ -2,6 +2,7 @@ package com.alaw810;
 
 import java.util.HashSet;
 import java.util.Scanner;
+import java.util.TreeSet;
 
 public class Main {
     public static void main(String[] args) {
@@ -35,11 +36,13 @@ public class Main {
                     if (restaurantHashSet.isEmpty()) {
                         System.out.println("No restaurants in the list yet.");
                     } else {
-                        for (Restaurant r : restaurantHashSet) {
+                        TreeSet<Restaurant> sortedRestaurants = new TreeSet<>(restaurantHashSet);
+                        for (Restaurant r : sortedRestaurants) {
                             System.out.println(r);
                         }
                     }
                     break;
+
                 case "3":
                     System.out.println("Goodbye!");
                     return;
